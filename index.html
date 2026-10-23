@@ -45,8 +45,8 @@ section{display:flex;flex-direction:column;gap:28px}
 /* Cabecera */
 .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.logo{width:78px;height:40px;background-size:contain;background-repeat:no-repeat;background-position:center}
-.brand b{font-family:var(--f-display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em}
+.logo{width:122px;height:62px;background-size:contain;background-repeat:no-repeat;background-position:center}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:1.6rem;letter-spacing:-.02em}
 .brand b span{color:var(--cyan);font-weight:500}
 .top nav{display:flex;gap:22px;flex-wrap:wrap;font-size:.93rem}
 .top nav a{color:var(--muted);text-decoration:none}.top nav a:hover{color:var(--ink)}
@@ -124,6 +124,24 @@ section{display:flex;flex-direction:column;gap:28px}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
 /* Banda de cifras */
+.gets{background:var(--soft);border-radius:24px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
+.who{display:flex;flex-direction:column;gap:14px;min-width:0}
+.who + .who{border-left:1px solid var(--line);padding-left:clamp(20px,4vw,48px)}
+.who-h{display:flex;align-items:center;gap:12px}
+.who-h h3{font-size:1.35rem}
+.who-h .ico{width:44px;height:44px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center}
+.who-h .ico.cy{background:var(--cyan)}
+.who-h .ico svg{width:22px;height:22px}
+.who ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.who li{position:relative;padding-left:26px;color:var(--muted);font-size:.97rem}
+.who li::before{content:"✓";position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;background:#fff;color:var(--ok);font-size:.72rem;display:grid;place-items:center;border:1px solid var(--line)}
+.who li b{color:var(--ink);font-weight:600}
+.twins{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.twin{border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;gap:16px;background:#fff;min-width:0}
+.twin-h{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}
+.twin-h span{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.twin-h b{font-family:var(--f-display);font-size:2.4rem;line-height:1;font-variant-numeric:tabular-nums}
+.ok-t{color:var(--ok)!important;font-weight:600}
 .stats{background:var(--soft);border-radius:24px;padding:28px clamp(18px,4vw,44px);display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:end}
 .stats div{display:flex;flex-direction:column;gap:4px}
 .stats b{font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,4vw,3rem);line-height:1;font-variant-numeric:tabular-nums}
@@ -211,7 +229,7 @@ section{display:flex;flex-direction:column;gap:28px}
 .via .ico svg{width:22px;height:22px}
 .via p{font-size:.93rem;color:var(--muted)}
 footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px;font-size:.85rem;color:var(--muted)}
-footer .brand .logo{width:60px;height:30px}
+footer .brand .logo{width:84px;height:43px}
 footer b{color:var(--ink)}
 
 @media (max-width:980px){
@@ -220,6 +238,10 @@ footer b{color:var(--ink)}
   .duo{grid-template-columns:1fr}
   .princ{grid-template-columns:repeat(2,1fr)}
   .eqs,.vias{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .gets,.twins{grid-template-columns:1fr}
+  .who + .who{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px}
 }
 @media (max-width:620px){
   .wrap{gap:64px}
@@ -299,14 +321,55 @@ footer b{color:var(--ink)}
     </div>
   </section>
 
-  <!-- Cifras -->
-  <div class="stats" role="group" aria-label="Primera prueba real">
-    <div><b>18</b><span>estudiantes evaluados</span></div>
-    <div><b>30 + 3</b><span>preguntas tipo test y abiertas</span></div>
-    <div><b>3</b><span>versiones barajadas del examen</span></div>
-    <div><b>1</b><span>informe formativo por estudiante</span></div>
-    <span class="cap">Primera prueba real en un examen de grado · octubre de 2026</span>
+  <!-- Lo que recibe cada uno -->
+  <div class="gets" role="group" aria-label="Lo que recibe cada uno">
+    <div class="who">
+      <div class="who-h"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>El docente</h3></div>
+      <ul>
+        <li><b>Corrección automática</b> del test y apoyo de IA en las abiertas</li>
+        <li><b>Una nota coherente</b> en todas partes, provisional si falta algo</li>
+        <li><b>La hoja escaneada al lado</b> para revisar cada lectura</li>
+        <li><b>Análisis de ítems</b> para mejorar el próximo examen</li>
+      </ul>
+    </div>
+    <div class="who">
+      <div class="who-h"><span class="ico cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><h3>El estudiante</h3></div>
+      <ul>
+        <li><b>Su nota</b> con el desglose de test y abiertas</li>
+        <li><b>Qué temas y competencias domina</b> y cuáles no todavía</li>
+        <li><b>Su siguiente paso</b>, concreto y escrito por el docente</li>
+        <li><b>Sin compararse con nadie</b>: solo con el objetivo</li>
+      </ul>
+    </div>
   </div>
+
+  <!-- La misma nota -->
+  <section aria-labelledby="t-mismanota">
+    <div class="sec-head">
+      <span class="eyebrow">Por qué una nota no basta</span>
+      <h2 id="t-mismanota">La misma nota, dos estudiantes distintos</h2>
+      <p class="muted">Un 6,5 no dice qué domina cada estudiante ni qué debe estudiar ahora. Estos dos sacaron la misma nota y necesitan cosas opuestas.</p>
+    </div>
+    <div class="twins">
+      <div class="twin">
+        <div class="twin-h"><span>Estudiante A</span><b>6,5</b></div>
+        <div class="logro"><div class="t"><b>Domina el vocabulario</b><span class="ok-t">Logro alcanzado</span></div>
+          <div class="bar" role="img" aria-label="Posición 88 de 100, objetivo 70"><span class="ci" style="left:80%;width:15%"></span><span class="pos" style="left:88%"></span><span class="target"></span></div></div>
+        <div class="logro"><div class="t"><b>Analiza casos con los modelos</b><span>Te faltan unos 25 puntos</span></div>
+          <div class="bar" role="img" aria-label="Posición 45 de 100, objetivo 70"><span class="ci" style="left:35%;width:20%"></span><span class="pos" style="left:45%"></span><span class="target"></span></div></div>
+        <div class="nxt"><b>Su siguiente paso: aplicar a casos</b>Ya conoce los conceptos; ahora debe usarlos para explicar situaciones nuevas.</div>
+      </div>
+      <div class="twin">
+        <div class="twin-h"><span>Estudiante B</span><b>6,5</b></div>
+        <div class="logro"><div class="t"><b>Domina el vocabulario</b><span>Te faltan unos 20 puntos</span></div>
+          <div class="bar" role="img" aria-label="Posición 50 de 100, objetivo 70"><span class="ci" style="left:40%;width:20%"></span><span class="pos" style="left:50%"></span><span class="target"></span></div></div>
+        <div class="logro"><div class="t"><b>Analiza casos con los modelos</b><span class="ok-t">Logro alcanzado</span></div>
+          <div class="bar" role="img" aria-label="Posición 84 de 100, objetivo 70"><span class="ci" style="left:75%;width:17%"></span><span class="pos" style="left:84%"></span><span class="target"></span></div></div>
+        <div class="nxt"><b>Su siguiente paso: precisar conceptos</b>Razona bien los casos, pero confunde conceptos próximos; necesita fijar las definiciones.</div>
+      </div>
+    </div>
+    <p class="muted" style="font-size:.85rem">Ejemplo ilustrativo con datos ficticios. Rombo: posición · barra: margen de incertidumbre · línea discontinua: objetivo.</p>
+  </section>
 
   <!-- Cómo funciona -->
   <section id="como" aria-labelledby="t-como">
@@ -388,8 +451,8 @@ footer b{color:var(--ink)}
     <div class="eqs">
       <div class="eq">
         <span class="n">1 · La nota</span>
-        <math display="block"><mrow><msub><mi>N</mi><mtext>test</mtext></msub><mo>=</mo><mfrac><mrow><mo>max</mo><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>A</mi><mo>−</mo><mfrac><mi>E</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo stretchy="false">)</mo></mrow><mi>n</mi></mfrac><mo>·</mo><msub><mi>P</mi><mtext>test</mtext></msub></mrow></math>
-        <p>Aciertos menos errores corregidos por azar (<i>k</i> opciones), sobre <i>n</i> preguntas y escalado a los puntos del test. Las abiertas suman la fracción de su rúbrica confirmada por el docente.</p>
+        <math display="block"><mrow><mtext>Puntuación</mtext><mo>=</mo><mtext>Aciertos</mtext><mo>−</mo><mfrac><mtext>Errores</mtext><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></mfrac></mrow></math>
+        <p>Igual que en EduMetric: <i>k</i> es el número de opciones, así que con 3 opciones cada error resta medio acierto y las omisiones no restan. Por ejemplo, 27 aciertos y 2 errores dan 27 − 2/2 = 26. Esa puntuación se pasa a los puntos del test (por ejemplo, 9 de 10) y nunca baja de 0; las abiertas suman según su rúbrica.</p>
       </div>
       <div class="eq">
         <span class="n">2 · La probabilidad de acierto</span>
